@@ -1,0 +1,4 @@
+alias python=python3
+alias py=python3
+alias vim=nvim
+alias pip=pip3
