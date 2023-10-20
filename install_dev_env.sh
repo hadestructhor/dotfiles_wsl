@@ -48,6 +48,9 @@ cat .zshrc >../.zshrc
 cat .profile >../.profile
 touch ~/.ssh/config && cat .ssh_config >~/.ssh/config
 
+echo 'Sourcing .zshrc'
+source ~/.zshrc
+
 echo 'Installing tmux...'
 brew install tmux
 
