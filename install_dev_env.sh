@@ -138,5 +138,10 @@ sudo snap install postman
 echo 'Installing PostgreSQL...'
 sudo apt-get -y install postgresql
 
+echo 'Installing Thorium...'
+curl -O https://dl.thorium.rocks/debian/dists/stable/thorium.list
+sudo mv thorium.list /etc/apt/sources.list.d/
+sudo apt install thorium-browser -y
+
 echo 'Switching to zsh...'
 exec zsh
