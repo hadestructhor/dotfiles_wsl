@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo 'Updating installing...'
-sudo apt-get update
-
 echo 'Generating ssh keypair for Github...'
 ssh-keygen -t ed25519 -f id_github_hadestructhor
 
