@@ -36,7 +36,7 @@ echo 'Sourcing .bashrc...'
 source ~/.bashrc
 
 echo "Installing zsh..."
-apt install zsh
+sudo apt install zsh
 
 echo 'Installin OhMyZsh...'
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
