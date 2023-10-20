@@ -1,6 +1,22 @@
 # dotfiles_wsl
 Dot files and install scripts for my own dev environment configuration of WSL2
 
+## Prerequisites
+
+A Debian wsl2 distro must be installed.
+
+You can follow this [guide](https://learn.microsoft.com/en-us/windows/wsl/install) to enable wsl.
+
+Once enabled, install Debian with the following command:
+```sh
+wsl --install Debian
+```
+
+Then upgrade the version of Debian to wsl2:
+```sh
+wsl --set-version Debian 2
+```
+
 ## How to install everything
 
 To install everything you first need to update your debian distro as follows:
