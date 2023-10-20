@@ -25,8 +25,18 @@ sudo apt install curl
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+echo 'Adding homebrew to .bashrc...'
+(
+	echo
+	echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+) >>~/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+echo 'Sourcing .bashrc...'
+source ~/.bashrc
+
 echo "Installing zsh..."
-brew install zsh
+apt install zsh
 
 echo 'Installin OhMyZsh...'
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -36,6 +46,10 @@ chsh -s /bin/zsh
 
 echo 'Installing sdkman...'
 brew install sdkman
+
+echo 'Adding sdkman to PATH'
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 echo 'Installling my LazyVim config...'
 git clone https://github.com/hadestructhor/LazyVim ~/.config/LazyVim
@@ -47,9 +61,6 @@ cp .zsh_alias ../.zsh_alias
 cat .zshrc >../.zshrc
 cat .profile >../.profile
 touch ~/.ssh/config && cat .ssh_config >~/.ssh/config
-
-echo 'Sourcing .zshrc'
-source ~/.zshrc
 
 echo 'Installing tmux...'
 brew install tmux
@@ -81,9 +92,6 @@ sudo snap install core
 
 echo 'Starting snap service...'
 sudo systemctl start snapd.service
-
-echo 'Sourcing .zshrc'
-source .zshrc
 
 echo 'Installing jdk 8, 11, 17 and 21...'
 sdk install java 8.0.382-tem
@@ -128,3 +136,6 @@ sudo snap install postman
 
 echo 'Installing PostgreSQL...'
 sudo apt-get -y install postgresql
+
+echo 'Switching to zsh...'
+exec zsh
