@@ -121,10 +121,10 @@ echo 'Installing Android Studio...'
 sudo snap install android-studio --classic
 
 echo 'Installing Sublime text...'
-sudo apt install sublime-text -y
+sudo apt-get install sublime-text -y
 
 echo 'Installing VS Code...'
-sudo apt install code -y
+sudo apt-get install code -y
 
 echo 'Installing DBeaver CE...'
 sudo snap install dbeaver-ce
