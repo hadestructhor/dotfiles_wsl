@@ -19,6 +19,9 @@ echo ~/.ssh/id_github_hadestructhor.pub
 echo 'Installing build-essential...'
 sudo apt install build-essential
 
+echo 'Installing curl...'
+sudo apt install curl
+
 echo "Installing Homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
