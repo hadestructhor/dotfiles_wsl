@@ -13,6 +13,11 @@ Then you have to ensure you have git installed:
 sudo apt install git
 ```
 
+Once git is installed, clone the repository via this command:
+```sh
+git clone https://github.com/hadestructhor/dotfiles_wsl.git
+```
+
 Once that is done, you need to make the `install_dev_env.sh` command executable via this command:
 ```sh
 sudo chmod +x install_dev_env.sh
