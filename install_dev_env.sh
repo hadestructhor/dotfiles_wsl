@@ -45,9 +45,7 @@ echo "Setting zsh as default shell..."
 chsh -s /bin/zsh
 
 echo 'Installing sdkman...'
-brew install sdkman
-
-echo 'Adding sdkman to PATH'
+curl -s "https://get.sdkman.io" | bash
 source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 echo 'Installling my LazyVim config...'
@@ -83,14 +81,11 @@ sudo apt-get install zip
 sudo apt-get install sed
 
 echo 'Installing Kotlin...'
-npm install -g @angular/cli
+sdk install kotlin
 
 echo 'Installing snap...'
 sudo apt install snapd
 sudo snap install core
-
-echo 'Starting snap service...'
-sudo systemctl start snapd.service
 
 echo 'Installing jdk 8, 11, 17 and 21...'
 sdk install java 8.0.382-tem
@@ -110,6 +105,9 @@ nvm use stable
 
 echo 'Installing Angular CLI...'
 npm install -g @angular/cl
+
+echo 'Starting snap service...'
+sudo systemctl start snapd.service
 
 echo 'Installing Intellij IDEA...'
 sudo snap install intellij-idea-community --classic
