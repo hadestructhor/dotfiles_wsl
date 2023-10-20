@@ -4,6 +4,7 @@ echo 'Generating ssh keypair for Github...'
 ssh-keygen -t ed25519 -f id_github_hadestructhor
 
 echo 'Moving ssh keys to ~/.ssh folder...'
+mkdir ~/.ssh
 mv id_github_hadestructhor ~/.ssh/id_github_hadestructhor
 mv id_github_hadestructhor.pub ~/ssh/id_github_hadestructhor.pub
 
