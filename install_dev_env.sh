@@ -76,9 +76,9 @@ echo 'Installing rust...'
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 echo 'Installing Zip, Unzip and sed...'
-sudo apt-get install unzip
-sudo apt-get install zip
-sudo apt-get install sed
+sudo apt install unzip
+sudo apt install zip
+sudo apt install sed
 
 echo 'Installing Kotlin...'
 sdk install kotlin
@@ -94,7 +94,7 @@ sdk install java 17-open
 sdk install java 21-open
 
 echo 'Installing C++ compilers...'
-sudo apt-get install g++
+sudo apt install g++
 
 echo 'Installing Python 3...'
 sudo apt install python3
@@ -121,10 +121,10 @@ echo 'Installing Android Studio...'
 sudo snap install android-studio --classic
 
 echo 'Installing Sublime text...'
-sudo apt-get install sublime-text -y
+sudo apt install sublime-text -y
 
 echo 'Installing VS Code...'
-sudo apt-get install code -y
+sudo apt install code -y
 
 echo 'Installing DBeaver CE...'
 sudo snap install dbeaver-ce
@@ -136,13 +136,22 @@ echo 'Installing Postman...'
 sudo snap install postman
 
 echo 'Installing PostgreSQL...'
-sudo apt-get -y install postgresql
+sudo apt -y install postgresql
 
 echo 'Installing Thorium...'
 curl -O https://dl.thorium.rocks/debian/dists/stable/thorium.list
 sudo mv thorium.list /etc/apt/sources.list.d/
 sudo apt update
 sudo apt install thorium-browser -y
+
+echo 'Installing vim'
+sudo apt install vim
+
+echo 'Installin nvim'
+sudo apt install neovim
+
+echo 'Installing my version of LazyVim'
+git clone https://github.com/LazyVim/starter ~/.config/LazyVim
 
 echo 'Switching to zsh...'
 exec zsh

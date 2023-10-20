@@ -1,4 +1,1 @@
-alias nvc="NVIM_APPNAME=NvChad nvim"
 alias nvl="NVIM_APPNAME=LazyVim nvim"
-alias nva="NVIM_APPNAME=AstroNvim nvim"
-alias nvk="NVIM_APPNAME=kickstart nvim"
