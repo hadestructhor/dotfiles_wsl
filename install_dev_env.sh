@@ -108,7 +108,7 @@ nvm install stable
 nvm use stable
 
 echo 'Installing Angular CLI...'
-npm install -g @angular/cl
+npm install -g @angular/cli
 
 echo 'Starting snap service...'
 sudo systemctl start snapd.service
