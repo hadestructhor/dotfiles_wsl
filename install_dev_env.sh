@@ -42,7 +42,7 @@ echo 'Installin OhMyZsh...'
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 echo "Setting zsh as default shell..."
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
 
 echo 'Installing sdkman...'
 curl -s "https://get.sdkman.io" | bash
