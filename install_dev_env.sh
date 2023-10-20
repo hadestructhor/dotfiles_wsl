@@ -3,6 +3,22 @@
 echo 'Updating installing...'
 sudo apt-get update
 
+echo 'Generating ssh keypair for Github...'
+ssh-keygen -t ed25519 -f id_github_hadestructhor
+
+echo 'Moving ssh keys to ~/.ssh folder...'
+mv id_github_hadestructhor ~/.ssh/id_github_hadestructhor
+mv id_github_hadestructhor.pub ~/ssh/id_github_hadestructhor.pub
+
+echo 'Starting ssh-agent in the background...'
+eval "$(ssh-agent -s)"
+
+echo 'Add ssh-key to ssh-agent...'
+ssh-add ~/.ssh/id_github_hadestructhor
+
+echo 'Showing public key to add to Github...'
+echo ~/.ssh/id_github_hadestructhor.pub
+
 echo 'Installing build-essential...'
 sudo apt install build-essential
 
@@ -30,6 +46,7 @@ cp .nvims ../.nvims
 cp .zsh_alias ../.zsh_alias
 cat .zshrc >../.zshrc
 cat .profile >../.profile
+touch ~/.ssh/config && cat .ssh_config >~/.ssh/config
 
 echo 'Installing tmux...'
 brew install tmux
