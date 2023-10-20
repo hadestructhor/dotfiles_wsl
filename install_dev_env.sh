@@ -48,8 +48,7 @@ echo 'Installing sdkman...'
 brew install sdkman
 
 echo 'Adding sdkman to PATH'
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 echo 'Installling my LazyVim config...'
 git clone https://github.com/hadestructhor/LazyVim ~/.config/LazyVim
