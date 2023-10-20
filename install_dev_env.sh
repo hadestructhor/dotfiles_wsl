@@ -148,7 +148,7 @@ echo 'Installing vim'
 sudo apt install vim
 
 echo 'Installin nvim'
-sudo apt install neovim
+brew install neovim
 
 echo 'Installing my version of LazyVim'
 git clone https://github.com/LazyVim/starter ~/.config/LazyVim
