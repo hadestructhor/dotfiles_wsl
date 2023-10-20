@@ -17,6 +17,17 @@ Then upgrade the version of Debian to wsl2:
 wsl --set-version Debian 2
 ```
 
+Ensure systemd is enabled by running the wsl instance and editing the file `/etc/wsl.conf` with the following content:
+```conf
+[boot]
+systemd=true
+```
+
+Then shutdown your wsl instance with the following command:
+```
+wsl --shutdown 
+```
+
 ## How to install everything
 
 To install everything you first need to update your debian distro as follows:
