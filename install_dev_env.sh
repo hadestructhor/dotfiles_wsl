@@ -122,7 +122,7 @@ echo 'Installing Android Studio...'
 sudo snap install android-studio --classic
 
 echo 'Installing Sublime text...'
-sudo apt-get install sublime-text -y
+sudo snap install sublime-text --classic
 
 echo 'Installing VS Code...'
 sudo apt-get install code -y
