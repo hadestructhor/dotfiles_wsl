@@ -63,9 +63,13 @@ touch ~/.ssh/config && cat .ssh_config >~/.ssh/config
 echo 'Installing tmux...'
 brew install tmux
 
+echo 'Installing tpm...'
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 echo 'Configuring tmux...'
 mkdir -p ~/.config/tmux/
 cp tmux.conf ~/.config/tmux/tmux.conf
+tmux source ~/.config/tmux/tmux.conf
 
 echo 'Installing lazygit...'
 brew install jesseduffield/lazygit/lazygit
