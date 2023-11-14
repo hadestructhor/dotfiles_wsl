@@ -1,21 +1,37 @@
 #!/bin/bash
 
 echo 'Generating ssh keypair for Github...'
-ssh-keygen -t ed25519 -f id_github_hadestructhor
+ssh-keygen -t ed25519 -f id_hadestructhorvault
 
 echo 'Moving ssh keys to ~/.ssh folder...'
 mkdir ~/.ssh
-mv id_github_hadestructhor ~/.ssh/id_github_hadestructhor
-mv id_github_hadestructhor.pub ~/.ssh/id_github_hadestructhor.pub
+mv id_hadestructhorvault ~/.ssh/id_hadestructhorvault
+mv id_hadestructhorvault.pub ~/.ssh/id_hadestructhorvault.pub
 
 echo 'Starting ssh-agent in the background...'
 eval "$(ssh-agent -s)"
 
 echo 'Add ssh-key to ssh-agent...'
-ssh-add ~/.ssh/id_github_hadestructhor
+ssh-add ~/.ssh/id_hadestructhorvault
 
 echo 'Showing public key to add to Github...'
-echo ~/.ssh/id_github_hadestructhor.pub
+echo ~/.ssh/id_hadestructhorvault.pub
+
+echo 'Generating ssh keypair for Github...'
+ssh-keygen -t ed25519 -f id_hadestructhor
+
+echo 'Moving ssh keys to ~/.ssh folder...'
+mv id_hadestructhor ~/.ssh/id_hadestructhor
+mv id_hadestructhor.pub ~/.ssh/id_hadestructhor.pub
+
+echo 'Starting ssh-agent in the background...'
+eval "$(ssh-agent -s)"
+
+echo 'Add ssh-key to ssh-agent...'
+ssh-add ~/.ssh/id_hadestructhor
+
+echo 'Showing public key to add to Github...'
+echo ~/.ssh/id_hadestructhor.pub
 
 echo 'Installing build-essential...'
 sudo apt install build-essential
@@ -53,12 +69,10 @@ echo 'Installling my LazyVim config...'
 git clone https://github.com/hadestructhor/LazyVim ~/.config/LazyVim
 
 echo 'Moving all the . files...'
-cp .gitconfig ../.gitconfig
-cp .nvims ../.nvims
-cp .zsh_alias ../.zsh_alias
-cat .zshrc >../.zshrc
-cat .profile >../.profile
-touch ~/.ssh/config && cat .ssh_config >~/.ssh/config
+cp .gitconfig ~/.gitconfig
+cp .zsh_alias ~/.zsh_alias
+cat .zshrc >~/.zshrc
+cat .profile >~/.profile
 
 echo 'Installing tmux...'
 brew install tmux
@@ -101,8 +115,13 @@ sdk install java 21-open
 echo 'Installing C++ compilers...'
 sudo apt install g++
 
-echo 'Installing Python 3...'
-sudo apt install python3
+echo 'Installing pyenv and latest python version...'
+brew install pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >>~/.bashrc
+echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >>~/.bashrc
+echo 'eval "$(pyenv init -)"' >>~/.bashrc
+source ~/.bashrc
+pyenv install 3
 
 echo 'Installing nvm and latest node version...'
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
@@ -156,7 +175,13 @@ echo 'Installin nvim'
 brew install neovim
 
 echo 'Installing my version of LazyVim'
-git clone https://github.com/LazyVim/starter ~/.config/LazyVim
+git clone https://github.com/hadestructhor/LazyVim ~/.config/LazyVim
+
+echo 'Installing zsh-syntax-highlighting'
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+
+echo 'Installing catpuccin theme for zsh-syntax-highlighting'
+git clone https://github.com/catppuccin/zsh-syntax-highlighting.git
 
 echo 'Switching to zsh...'
 exec zsh
