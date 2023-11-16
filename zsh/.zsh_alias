@@ -21,22 +21,10 @@ alias gchb="git checkout branch"
 alias uobs="obs && gl && cd ~"
 alias sobs='uobs && obs && gac "vault backup: `date`" && gp && cd ~'
 
-function start_tmux {
-	session='start'
-	window=${session}:1
-	pane=${window}.1
-	tmux new -s "$session" -d
-	tmux select-window -t "$window"
-	tmux split-window -h 
-	tmux send-keys -t "$pane" 'nvl' Enter \; send-keys -t "$pane" ' ql' \; select-pane -t "$pane"
-	tmux attach-session -t "$session"
-}
-
 function startup {
 	if [ ! "$TMUX" ]
 	then
 		uobs
-		start_tmux;	
 	fi
 
 }

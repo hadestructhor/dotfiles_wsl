@@ -130,11 +130,15 @@ fi
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 export PATH="/home/linuxbrew/.linuxbrew/opt/python@3.12/libexec/bin:$PATH"
+export PATH="$HOME/.config/tmux/plugins/tmuxifier/bin:$PATH"
 
 if [ -z "$SSH_AUTH_SOCK" ] ; then
   eval `ssh-agent -s`
-  ssh-add ~/.ssh/id_hadestructhorvault
+  ssh-add ~/.ssh/id_hadestructhorv
 fi
+
+source ~/.zsh_alias
+source ~/.nvims
 
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
@@ -142,6 +146,4 @@ eval "$(pyenv init -)"
 source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/zsh-syntax-highlighting/themes/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
-source ~/.zsh_alias
-source ~/.nvims
-
+export XDG_CONFIG_HOME="$HOME/.config"
